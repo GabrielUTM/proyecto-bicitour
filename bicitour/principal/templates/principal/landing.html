@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tituloApp %}{% endblock tituloApp %}</title>
+    <link rel="stylesheet" href="{% static "principal/node_modules/bootstrap/dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "principal/css/style.css" %}">
+    <style>
+        .container__color {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .section__img {
+            width: 80%;
+            height: 20rem;
+        }
+
+        @media (max-width:550px) {
+            .section__img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+        <div class="container-fluid flex-row-reverse">
+            <div class="navbar-brand ">
+                <img src="{% static "principal/img/header_image.jpg" %}" class="header__img me-md-3" alt="">
+            </div>
+            <!-- Elementos a la izquierda -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav ps-md-5">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recorridos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pre-registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicia sesión</a>
+                    </li>
+                </ul>
+                            <!-- Nombre del sitio a la derecha -->
+            </div>
+        </div>
+    </nav>
+    <!-- Fin de la barra de navegación -->
+
+    <main>
+        <section class="my-3">
+            {% block contenido %}{% endblock contenido %}
+        </section>
+    </main>
+
+    <script src="{% static "principal/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+</body>
+
+</html>

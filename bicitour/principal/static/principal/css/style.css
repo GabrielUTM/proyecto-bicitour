@@ -1,0 +1,12 @@
+body{
+    background-color: #DBE9ED;
+}
+
+.header__img{
+    width: 70px;
+    height: 2.7rem;
+}
+
+.container__color {
+    background-color: rgb(255, 255, 255);
+}
