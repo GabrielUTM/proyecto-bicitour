@@ -1,11 +1,12 @@
 {% extends "principal/landing.html" %}
 {% load static %}
 {% block contenido %}
+<section class="my-3 px-2">
 <div class="container py-4 my-5 container__color rounded-4">
 <h3 class="fw-bolder text-center">Detalle del recorrido</h3>
 <p class="text-center">Aqui se muestran todos los detalles del recorrido</p>
 <div class="row justify-content-center py-3 my-3">
-    <div class="col-md-4 col-sm-12 ps-md-5 ps-sm-5 py-md-4">
+    <div class="col-md-4 col-sm-12 ps-md-5 ps-sm-5 py-4">
         <p><span class="fw-bolder">Costo:</span> $200</p>
         <p><span class="fw-bolder">Ciudad:</span> Pátzcuaro</p>
         <p><span class="fw-bolder">Fecha:</span> 05/06/2024</p>
@@ -24,4 +25,5 @@
         </div>
     </div>
 </div>
+</section>
 {% endblock contenido %}
