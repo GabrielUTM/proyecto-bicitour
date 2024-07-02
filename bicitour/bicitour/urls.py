@@ -23,5 +23,6 @@ from recorridos import views as views_recorridos
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.principal, name="Principal"),
+    path('recorridos/', views_recorridos.recorridos, name="Recorridos"),
     path('detalle/', views_recorridos.detalle_recorrido, name="Detalle"),
 ]
