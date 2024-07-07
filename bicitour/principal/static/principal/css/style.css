@@ -11,10 +11,6 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-.primary_button{
-    background-color:#15E4F1;
-    color: black;
-}
 .col_h{
     height: auto !important;
 }

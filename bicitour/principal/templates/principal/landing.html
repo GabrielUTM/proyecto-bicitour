@@ -26,10 +26,10 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav ps-md-5">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'Principal'%}">Home</a>
+                        <a class="nav-link {% if request.path == "/"  %}active{% endif %}" aria-current="page" href="{% url 'Principal'%}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Recorridos'%}">Recorridos</a>
+                        <a class="nav-link {% if request.path == "/recorridos/"  %}active{% endif %}" href="{% url 'Recorridos'%}">Recorridos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pre-registro</a>
@@ -47,14 +47,13 @@
     <main>
             {% block contenido %}{% endblock contenido %}
     </main>
-
     <footer class="bg-light text-center py-3">
         <div class="container d-flex align-items-center">
             <img src="{%static "principal/img/logo.PNG"%}" alt="BiciTour Logo" class="img-fluid me-3" style="height: auto; max-width: 150px;">
             <p class="mb-0 mx-auto">&copy; 2024 <strong>BiciTour</strong>. Todos los derechos reservados.</p>
         </div>
     </footer>
-    {% include "principal/participantesModal.html" %}
+    {% include "principal/Modals.html" %}
     <script src="{% static "principal/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
 </body>
 
