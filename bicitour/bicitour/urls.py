@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from principal import views
 from recorridos import views as views_recorridos
+from django.conf import settings
 
 
 urlpatterns = [
@@ -26,3 +27,10 @@ urlpatterns = [
     path('recorridos/', views_recorridos.recorridos, name="Recorridos"),
     path('detalle/', views_recorridos.detalle_recorrido, name="Detalle"),
 ]
+
+if settings.DEBUG:
+
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)
+
