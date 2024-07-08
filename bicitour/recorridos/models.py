@@ -12,3 +12,14 @@ class Recorridos(models.Model): #Define la estructura de nuestra tabla
     costo = models.IntegerField()
     foto_zona_visitar = models.TextField()
     activo = models.BooleanField(True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Recorrido"
+        verbose_name_plural = "Recorridos"
+        ordering = ["-created"]
+
+    def __str__(self):
+        return self.punto_inicio
+        

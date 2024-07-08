@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'principal',
-    'recorridos',
+    'recorridos.apps.RecorridosConfig',
+    
 ]
 
 MIDDLEWARE = [
