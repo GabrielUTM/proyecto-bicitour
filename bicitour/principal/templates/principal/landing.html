@@ -16,7 +16,7 @@
 
         <div class="container-fluid flex-row-reverse">
             <div class="navbar-brand ">
-                <img src="{% static "principal/img/header_image.jpg" %}" class="header__img me-md-3" alt="">
+                <img src="{% static "principal/img/logo.PNG" %}" class="me-md-3" alt="">
             </div>
             <!-- Elementos a la izquierda -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -32,7 +32,7 @@
                         <a class="nav-link {% if request.path == "/recorridos/"  %}active{% endif %}" href="{% url 'Recorridos'%}">Recorridos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pre-registro</a>
+                        <a class="nav-link{% if request.path == "/pre-registro/"  %}active{% endif %}" href="{% url 'Pre-registro'%}">Pre-registro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Inicia sesión</a>

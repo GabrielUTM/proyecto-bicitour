@@ -7,15 +7,29 @@ body {
     height: 2.7rem;
 }
 
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .container__color {
     background-color: rgb(255, 255, 255);
 }
 
-.col_h{
+.col_h {
     height: auto !important;
 }
-.secondary_button{
-    background-color:black;
+
+.btn-primary {
+    background-color: #15E4F1;
+    border: none;
+    color: black;
+}
+
+.secondary_button {
+    background-color: black;
     color: white;
 }
 
@@ -39,14 +53,19 @@ body {
     transform: scale(1.05);
 }
 
-.enviar{
-    color:#32A2F3;
+.enviar {
+    color: #32A2F3;
     text-decoration: none;
     font-size: 20px;
 }
+
 .section__img {
     width: 80%;
     height: 20rem;
+}
+
+.btn-primary:hover {
+    background-color: #00A7D9;
 }
 
 @media (max-width:550px) {

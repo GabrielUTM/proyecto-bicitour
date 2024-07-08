@@ -1,11 +1,13 @@
-{% extends "principal/landing.html" %}
-{% block tituloApp %}Recorridos{% endblock tituloApp %}
+{% extends 'principal/landing.html' %}
+{% block tituloApp %}
+  Recorridos
+{% endblock %}
 {% block contenido %}
 <section class="my-3">
-    <div class="container container__color text-center rounded w-75 mx-auto p-4" style="height: 600px;">
+    <div class="container container__color text-center rounded w-75 mx-auto p-4" style="height: auto;">
         <!-- Título y descripción -->
         <div class="row">
-            <div class="col text-center">
+            <div class="col">
                 <h3 class="fw-bolder mb-4">Acerca de</h3>
                 <p>Lo que nos ha dado el reconocimiento a través de estos años ha sido:</p>
             </div>
@@ -14,66 +16,49 @@
         <!-- Tarjetas -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
-                <div class="position-relative">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1"
-                        class="card-img-top img-fluid rounded mb-4" alt="...">
-                    <div class="position-absolute top-100 start-50 translate-middle">
-                        <div class="card mt-5 h-100 border-1" style="height: auto; width: 250px !important;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <p class="mb-0">00/00/00</p>
-                                    <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
-                                </div>
-                                <h5 class="card-title text-start">Card title</h5>
-                                <p class="card-text text-start">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="enviar d-flex justify-content-start">Ir</a>
-                            </div>
+                <div class="card border-1">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <p class="mb-0">00/00/00</p>
+                            <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
                         </div>
+                        <h5 class="card-title text-start"><strong>Card title</strong></h5>
+                        <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="enviar d-flex justify-content-start">Ir</a>
                     </div>
-                </div>                 
+                </div>
             </div>
             <div class="col">
-                <div class="position-relative">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1"
-                        class="card-img-top img-fluid rounded mb-4" alt="...">
-                    <div class="position-absolute top-100 start-50 translate-middle">
-                        <div class="card mt-5 h-100 border-1" style="height: auto; width: 250px !important;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <p class="mb-0">00/00/00</p>
-                                    <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
-                                </div>
-                                <h5 class="card-title text-start">Card title</h5>
-                                <p class="card-text text-start">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="enviar d-flex justify-content-start">Ir</a>
-                            </div>
+                <div class="card border-1">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <p class="mb-0">00/00/00</p>
+                            <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
                         </div>
+                        <h5 class="card-title text-start"><strong>Card title</strong></h5>
+                        <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="enviar d-flex justify-content-start">Ir</a>
                     </div>
-                </div>                 
+                </div>
             </div>
             <div class="col">
-                <div class="position-relative">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1"
-                        class="card-img-top img-fluid rounded mb-4" alt="...">
-                    <div class="position-absolute top-100 start-50 translate-middle">
-                        <div class="card mt-5 h-100 border-1" style="height: auto; width: 250px !important;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <p class="mb-0">00/00/00</p>
-                                    <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
-                                </div>
-                                <h5 class="card-title text-start">Card title</h5>
-                                <p class="card-text text-start">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="enviar d-flex justify-content-start">Ir</a>
-                            </div>
+                <div class="card border-1">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <p class="mb-0">00/00/00</p>
+                            <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
                         </div>
+                        <h5 class="card-title text-start"><strong>Card title</strong></h5>
+                        <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="enviar d-flex justify-content-start">Ir</a>
                     </div>
-                </div>                 
+                </div>
             </div>
         </div>
     </div>
 </section>
-{% endblock contenido %}
+
+{% endblock %}

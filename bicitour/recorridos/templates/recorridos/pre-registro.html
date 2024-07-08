@@ -1,0 +1,48 @@
+{% extends 'principal/landing.html' %}
+{% block tituloApp %}
+  Pre-registro
+{% endblock %}
+{% block contenido %}
+<div class="container my-5 align-items-center">
+    <div class="row align-items-center">
+        <div class="col-md-6 p-4">
+            <h2><strong>Pre-registro</strong></h2>
+            <p>Le presentamos el formulario de inscripción para el recorrido por <strong>Pátzcuaro Mich:</strong></p>
+            <form>
+
+                <div class="row">
+                    <div class="col-6 mb-3 align-items-center">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control border-1" id="nombre" placeholder="Ingrese su nombre">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="correo" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="correo" placeholder="Ingrese su correo">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" placeholder="Ingrese su ciudad">
+                    </div>
+                </div>
+                
+                
+                <div class="col-5 mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado" placeholder="Ingrese su estado">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 my-5"><strong>Registrar</strong></button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <img src="https://www.lugaresturisticosenmexico.com/wp-content/uploads/2022/05/Patzcuaro-Michoacan-Pueblo-Magico-Turismo.jpg" alt="Pátzcuaro" class="mx-auto d-block" style="height: 380px; width: 90%; object-fit: cover;">
+        </div>
+    </div>
+</div>
+{% endblock %}
