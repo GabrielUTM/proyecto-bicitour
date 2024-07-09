@@ -1,4 +1,5 @@
  {% comment %} Modal Participantes del recorrido {% endcomment %}
+ {% load static %}
 <div
   class="modal fade"
   id="participantesModal"
@@ -99,5 +100,67 @@
         </button>
       </div>
     </div>
+  </div>
+</div>
+
+{% comment %} Modal formulario de la calificación del Recorrido {% endcomment %}
+<div
+  class="modal fade"
+  id="formularioCalificacionModal"
+  tabindex="-1"
+  aria-labelledby="formularioCalificarModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content px-md-5">
+      <div class="rating-form">
+          <h2>Calificación</h2>
+          <div class="ec-stars-wrapper">
+            <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+            <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+            <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+            <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+            <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+          </div>
+            <div >
+                <h5 for="comentarios">Comentarios</h5>
+                <textarea id="comentarios" name="comentarios"></textarea>
+            </div>
+          
+          <div class="modal-footer mb-4">
+            <button
+            type="submit"
+            class="btn btn-info px-5 fw-bold"
+            data-bs-dismiss="modal"
+            >
+              Aceptar
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% comment %} Modal finalizar el Recorrido {% endcomment %}
+<div
+  class="modal fade"
+  id="finalizarRModal"
+  tabindex="-1"
+  aria-labelledby="finalizarRModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content px-md-5">
+      <div class="modal-body text-center">
+          <h5>Recorrido Finalizado Correctamente</h5>
+      </div>
+          <div class="modal-footer mb-4">
+            <button
+            type="button"
+            class="btn btn-info px-5 fw-bold"
+            data-bs-dismiss="modal"
+            >
+              Aceptar
+            </button>
+          </div>
   </div>
 </div>
