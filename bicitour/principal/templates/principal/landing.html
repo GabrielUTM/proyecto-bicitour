@@ -34,6 +34,11 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/pre-registro/"  %}active{% endif %}" href="{% url 'Pre-registro'%}">Pre-registro</a>
                     </li>
+                    {% if request.path == "/detalle/" %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == "/detalle/"  %}active{% endif %}" href="{% url 'Detalle'%}">Detalles del Recorrido</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Inicia sesión</a>
                     </li>
@@ -47,11 +52,9 @@
     <main>
             {% block contenido %}{% endblock contenido %}
     </main>
-    <footer class="bg-light text-center py-3">
-        <div class="container d-flex align-items-center">
+    <footer class="bg-light d-flex align-items-center text-center py-3">
             <img src="{%static "principal/img/logo.PNG"%}" alt="BiciTour Logo" class="img-fluid me-3" style="height: auto; max-width: 150px;">
             <p class="mb-0 mx-auto">&copy; 2024 <strong>BiciTour</strong>. Todos los derechos reservados.</p>
-        </div>
     </footer>
     {% include "principal/Modals.html" %}
     <script src="{% static "principal/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>

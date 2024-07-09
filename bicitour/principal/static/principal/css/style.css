@@ -7,6 +7,25 @@ body {
     height: 2.7rem;
 }
 
+/* Color de los links del nav */
+.nav-link:hover{
+    color: #15E4F1;
+}
+
+.navbar .nav-link.active {
+    color: #15E4F1;
+
+}
+/* Color del botón success */
+.btn-success{
+    color: black;
+}
+.btn-success:hover{
+    color: black;
+}
+
+
+
 .container {
     background-color: #fff;
     padding: 30px;
@@ -78,24 +97,26 @@ body {
 /* Estrellas del formulario*/
 
 .ec-stars-wrapper {
-	font-size: 0;
-	display: inline-block;
+    font-size: 0;
+    display: inline-block;
 }
+
 .ec-stars-wrapper a {
-	text-decoration: none;
-	display: inline-block;
-	/* Volver a dar tamaño al texto */
-	font-size: 32px;
-	font-size: 2rem;
-	
-	color: #888;
+    text-decoration: none;
+    display: inline-block;
+    /* Volver a dar tamaño al texto */
+    font-size: 32px;
+    font-size: 2rem;
+
+    color: #888;
 }
 
 .ec-stars-wrapper:hover a {
-	color: rgb(232, 242, 50);
+    color: rgb(232, 242, 50);
 }
-.ec-stars-wrapper > a:hover ~ a {
-	color: #888;
+
+.ec-stars-wrapper>a:hover~a {
+    color: #888;
 }
 
 .modal-content formularioCalificacionModal {
@@ -109,7 +130,7 @@ body {
     position: relative;
 }
 
-.rating-form h2{
+.rating-form h2 {
     margin-top: 20px;
     text-align: center;
 }
@@ -120,7 +141,6 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px; 
+    border-radius: 4px;
     resize: none;
 }
-
