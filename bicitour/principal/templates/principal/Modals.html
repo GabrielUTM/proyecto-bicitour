@@ -130,7 +130,7 @@
           <div class="modal-footer mb-4">
             <button
             type="submit"
-            class="btn btn-info px-5 fw-bold"
+            class="btn btn-info px-5 fw-bold mx-auto"
             data-bs-dismiss="modal"
             >
               Aceptar
@@ -143,24 +143,25 @@
 {% comment %} Modal finalizar el Recorrido {% endcomment %}
 <div
   class="modal fade"
-  id="finalizarRModal"
+  id="finalizarModal"
   tabindex="-1"
-  aria-labelledby="finalizarRModalLabel"
+  aria-labelledby="finalizarModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content px-md-5">
+    <div class="modal-content">
       <div class="modal-body text-center">
-          <h5>Recorrido Finalizado Correctamente</h5>
+          <p class="pt-2 fs-5">Recorrido Finalizado Correctamente</p>
       </div>
-          <div class="modal-footer mb-4">
-            <button
-            type="button"
-            class="btn btn-info px-5 fw-bold"
-            data-bs-dismiss="modal"
-            >
-              Aceptar
-            </button>
-          </div>
+        <div class="modal-footer mb-4">
+          <button
+          type="button"
+          class="btn btn-info px-5 fw-bold mx-auto"
+          data-bs-dismiss="modal"
+          >
+            Aceptar
+          </button>
+        </div>
   </div>
 </div>
+
