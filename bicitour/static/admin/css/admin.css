@@ -1,0 +1,18 @@
+body {
+    background-color: #DBE9ED;
+}
+
+#header{
+    background: rgb(4, 4, 153);
+    color: #ffff;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    /* color de prueba */
+    background-color: #52c4e4;
+    padding: 1rem 0px;
+    position: absolute;
+    bottom: 0;
+}
