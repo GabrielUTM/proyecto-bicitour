@@ -29,6 +29,10 @@ urlpatterns = [
     path('pre-registro/', views_recorridos.pre_registro,name="Pre-registro")
 ]
 
+admin.site.index_title="Administración"
+admin.site.site_header="BiciTour"
+admin.site.site_title="BiciTour"
+
 if settings.DEBUG:
 
     from django.conf.urls.static import static

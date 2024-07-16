@@ -1,5 +1,12 @@
+:root{
+    --bg-color-primary:#DBE9ED;
+    --bg-color-secondary:#fff;
+    --color-accent:#15E4F1;
+    --text-color-primary:#0000;
+}
+
 body {
-    background-color: #DBE9ED;
+    background-color: var(--bg-color-primary);
 }
 
 .header__img {
@@ -9,25 +16,23 @@ body {
 
 /* Color de los links del nav */
 .nav-link:hover{
-    color: #15E4F1;
+    color: var(--color-accent);
 }
 
 .navbar .nav-link.active {
-    color: #15E4F1;
+    color: var(--color-accent);
 
 }
 /* Color del botón success */
 .btn-success{
-    color: black;
+    color: var(--text-color-primary);
 }
 .btn-success:hover{
-    color: black;
+    color: var(--text-color-primary);
 }
 
-
-
 .container {
-    background-color: #fff;
+    background-color: var(--bg-color-secondary);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -37,19 +42,16 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-.col_h {
-    height: auto !important;
-}
 
 .btn-primary {
-    background-color: #15E4F1;
+    background-color: var(--color-accent);
     border: none;
-    color: black;
+    color: var(--text-color-primary);
 }
 
 .secondary_button {
-    background-color: black;
-    color: white;
+    background-color: var(--text-color-primary);
+    color: var(--bg-color-primary);
 }
 
 .section__img {
@@ -58,7 +60,7 @@ body {
 }
 
 .card_style {
-    background-color: #15E4F1;
+    background-color: var(--color-accent);
 }
 
 .card {
