@@ -23,13 +23,6 @@ body {
     color: var(--color-accent);
 
 }
-/* Color del botón success */
-.btn-success{
-    color: var(--text-color-primary);
-}
-.btn-success:hover{
-    color: var(--text-color-primary);
-}
 
 .container {
     background-color: var(--bg-color-secondary);

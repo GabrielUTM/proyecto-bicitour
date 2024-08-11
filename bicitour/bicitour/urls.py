@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.principal, name="Principal"),
     path('recorridos/', views_recorridos.recorridos, name="Recorridos"),
-    path('detalle/', views_recorridos.detalle_recorrido, name="Detalle"),
+    path('detalle/<int:id>', views_recorridos.detalle_recorrido, name="Detalle"),
     path('pre-registro/', views_recorridos.pre_registro,name="Pre-registro")
 ]
 

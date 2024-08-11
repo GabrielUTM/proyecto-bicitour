@@ -2,8 +2,9 @@
 {% block tituloApp %}
   Recorridos
 {% endblock %}
+{% load static %}
 {% block contenido %}
-<section class="my-3">
+<section class="my-3 min-vh-100 ">
     <div class="container container__color text-center rounded w-75 mx-auto p-4" style="height: auto;">
         <!-- Título y descripción -->
         <div class="row">
@@ -15,48 +16,24 @@
 
         <!-- Tarjetas -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for recorrido in recorridos %}
             <div class="col">
                 <div class="card border-1">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
+                    <img src="{{recorrido.foto_zona_visitar.url}}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <p class="mb-0">00/00/00</p>
                             <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
                         </div>
-                        <h5 class="card-title text-start"><strong>Card title</strong></h5>
+                        <h5 class="card-title text-start"><strong>{{recorrido.estado}}</strong></h5>
+
                         <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{% url "Detalle" %}" class="enviar d-flex justify-content-start">Ir</a>
+                        <a href="{% url "Detalle" recorrido.id_recorrido %}" class="enviar d-flex justify-content-start">Ir</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card border-1">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="mb-0">00/00/00</p>
-                            <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
-                        </div>
-                        <h5 class="card-title text-start"><strong>Card title</strong></h5>
-                        <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="enviar d-flex justify-content-start">Ir</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card border-1">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/50/68/3b/in-some-places-it-also.jpg?w=1200&h=-1&s=1" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="mb-0">00/00/00</p>
-                            <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
-                        </div>
-                        <h5 class="card-title text-start"><strong>Card title</strong></h5>
-                        <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="enviar d-flex justify-content-start">Ir</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+           
         </div>
     </div>
 </section>
