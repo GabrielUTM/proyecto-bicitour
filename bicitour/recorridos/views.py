@@ -5,7 +5,8 @@ from .models import Recorridos
 # Create your views here.
 def detalle_recorrido(request, id):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
-    return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido})
+    inscripcion = 'form' in request.COOKIES
+    return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':inscripcion})
 
 def recorridos(request):
     recorridos = Recorridos.objects.all()
@@ -22,8 +23,11 @@ def registrarParticipante(request, id):
         if form.is_valid():
             form.save()
             recorrido = get_object_or_404(Recorridos, id_recorrido = id)
-            return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido})
+            respuesta = render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':'form' in request.COOKIES })
+            respuesta.set_cookie('form', 'true', path='/')
+            return respuesta
         else:
             return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
     form = RegistroParticipantesForm()
     return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
+

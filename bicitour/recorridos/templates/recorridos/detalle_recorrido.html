@@ -30,7 +30,11 @@
     </div>
     <div class="row">
       <div class="d-flex justify-content-evenly">
-        <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
+        {% if inscripcion_existe %}
+          <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Calificar</a>
+        {%else%}
+          <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
+        {%endif%}
         <button
           type="button"
           class="btn btn-info px-4 fw-bold"
