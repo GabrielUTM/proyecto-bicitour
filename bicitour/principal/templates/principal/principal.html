@@ -15,10 +15,12 @@
           <button
             type="button"
             class="btn btn-info me-4 border-0"
-          >
-            Recorridos
+            onclick="window.location.href='{%url 'Recorridos'%}'">Recorridos
           </button>
-          <button type="button" class="btn btn-dark border-0">Acerca de</button>
+          <button 
+          type="button" 
+          class="btn btn-dark border-0"
+          onclick="location.href='#acerca'">Acerca de</button>
         </div>
       </div>
 
@@ -43,7 +45,7 @@
         </p>
       </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-2 g-4 py-5">
+    <div id="acerca" class="row row-cols-1 row-cols-md-2 g-4 py-5">
       <!-- Sección 1 -->
       <div class="col">
         <div class="card card_style h-100 border-0">
