@@ -22,12 +22,17 @@
                     <img src="{{recorrido.foto_zona_visitar.url}}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="...">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="mb-0">00/00/00</p>
-                            <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
+                            <p class="mb-0">{{recorrido.fecha|date:"d/m/y"}}</p>
+                            {% if fecha  == is_today %}
+                                <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Hoy</div>
+                            {%else%}
+                                <div class="px-2 py-1" style="background-color: #9CF7FD; border-radius: 5px;">Proximo</div>   
+                            {%endif%}
+                            
                         </div>
                         <h5 class="card-title text-start"><strong>{{recorrido.estado}}</strong></h5>
 
-                        <p class="card-text text-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text text-start">{{recorrido.descripcion}}</p>
                         <a href="{% url "Detalle"  recorrido.id_recorrido %}" class="enviar d-flex justify-content-start">Ir</a>
                     </div>
                 </div>

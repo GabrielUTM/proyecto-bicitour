@@ -1,17 +1,17 @@
 from django.db import models
 from django.core.validators import EmailValidator, MinLengthValidator, MaxLengthValidator, RegexValidator
 
-# Create your models here.
-# Define la estructura de la tabla 'Recorridos' en la base de datos
+
 class Recorridos(models.Model):
     id_recorrido = models.AutoField(primary_key=True)
-    fecha = models.DateTimeField(auto_now_add=True)
-    hora = models.TimeField(auto_now_add=True)
+    fecha = models.DateField(verbose_name="Fecha del recorrido")
+    hora = models.TimeField(verbose_name="Hora de partida")
     estado = models.CharField(max_length=70)
     ciudad = models.CharField(max_length=70)
     km_recorrido = models.FloatField(verbose_name="Kilómetros")
     tiempo_estimado = models.TimeField(verbose_name="Tiempo estimado en horas")
-    punto_inicio = models.TextField(max_length=200)
+    descripcion = models.TextField(max_length=200, verbose_name="Agrega una descripción del recorrido")
+    punto_inicio = models.TextField(max_length=200, verbose_name="Punto de reunión")
     costo = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Costo")
     foto_zona_visitar = models.ImageField(null=True, upload_to="fotos", verbose_name="Fotografía")
     activo = models.BooleanField(default=True)
@@ -24,7 +24,8 @@ class Recorridos(models.Model):
         ordering = ["created"]
 
     def __str__(self):
-        return self.estado 
+        return self.estado
+
 
 
 class Inscripcion(models.Model):

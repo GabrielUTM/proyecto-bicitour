@@ -3,10 +3,8 @@ from .models import Recorridos
 from .models import Inscripcion
 from .models import Comentario
 from .forms import ComentarioForm
+
 # Register your models here.
-
-
-
 
 class AdministrarRecorrido(admin.ModelAdmin):
     list_display = ('id_recorrido', 'fecha', 'hora', 'estado', 'ciudad', 'km_recorrido', 'tiempo_estimado', 'punto_inicio', 'costo', 'activo', 'created', 'updated')
