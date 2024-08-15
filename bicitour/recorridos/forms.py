@@ -2,7 +2,7 @@
 from django import forms
 from .models import Comentario, Inscripcion
 
-class RegistroParticipantesForm():
+class RegistroParticipantesForm(forms.ModelForm):
     class Meta:
         model = Inscripcion
         fields = ["id_recorrido", "usuario_nombre", "usuario_correo_electronico", "usuario_telefono", "usuario_ciudad", "usuario_estado"]

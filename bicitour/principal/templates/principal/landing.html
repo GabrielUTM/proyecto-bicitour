@@ -31,9 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/recorridos/"  %}active{% endif %}" href="{% url 'Recorridos'%}">Recorridos</a>
                     </li>
-                    <li class="nav-item">
+{% comment %}                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/pre-registro/"  %}active{% endif %}" href="{% url 'Pre-registro'%}">Pre-registro</a>
-                    </li>
+                    </li> {% endcomment %}
                     {% if request.path == "/detalle/" %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/detalle/"  %}active{% endif %}" href="{% url 'Detalle'%}">Detalles del Recorrido</a>

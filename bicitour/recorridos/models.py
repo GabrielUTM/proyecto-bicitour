@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import EmailValidator, MinLengthValidator, MaxLengthValidator
+from django.core.validators import EmailValidator, MinLengthValidator, MaxLengthValidator, RegexValidator
 
 # Create your models here.
 # Define la estructura de la tabla 'Recorridos' en la base de datos
@@ -24,17 +24,21 @@ class Recorridos(models.Model):
         ordering = ["created"]
 
     def __str__(self):
-        return self.estado
+        return self.estado 
 
 
 class Inscripcion(models.Model):
+    text_validator = RegexValidator(
+        regex=r'^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$',
+        message="Este campo solo puede contener letras y espacios."
+        )
     id_inscripcion = models.AutoField(primary_key=True,)
     id_recorrido = models.ForeignKey(Recorridos, on_delete=models.CASCADE, verbose_name="Recorridos")
-    usuario_nombre = models.CharField(max_length=60, verbose_name="Nombre:")
+    usuario_nombre = models.CharField(max_length=60, verbose_name="Nombre:", validators=[text_validator])
     usuario_correo_electronico = models.EmailField(max_length=80,verbose_name="Correo electronico:", validators=[EmailValidator()], db_index=True)
     usuario_telefono = models.CharField(max_length=10,verbose_name="Telefono:", validators=[MinLengthValidator(10), MaxLengthValidator(10)], db_index=True)
-    usuario_ciudad = models.CharField(max_length=60,verbose_name="Ciudad:")
-    usuario_estado = models.CharField(max_length=60,verbose_name="Estado")
+    usuario_ciudad = models.CharField(max_length=60,verbose_name="Ciudad:", validators=[text_validator])
+    usuario_estado = models.CharField(max_length=60,verbose_name="Estado:", validators=[text_validator])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -45,6 +49,9 @@ class Inscripcion(models.Model):
 
     def __str__(self):
         return self.usuario_nombre
+    
+
+
 
 
 class Comentario(models.Model):

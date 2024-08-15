@@ -36,12 +36,6 @@ body {
 }
 
 
-.btn-primary {
-    background-color: var(--color-accent);
-    border: none;
-    color: var(--text-color-primary);
-}
-
 .secondary_button {
     background-color: var(--text-color-primary);
     color: var(--bg-color-primary);
@@ -78,9 +72,6 @@ body {
     height: 20rem;
 }
 
-.btn-primary:hover {
-    background-color: #00A7D9;
-}
 
 @media (max-width:550px) {
     .section__img {

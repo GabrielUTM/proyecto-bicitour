@@ -7,41 +7,55 @@
     <div class="row align-items-center">
         <div class="col-md-6 p-4">
             <h2><strong>Pre-registro</strong></h2>
-            <p>Le presentamos el formulario de inscripción para el recorrido por <strong>Pátzcuaro Mich:</strong></p>
-            <form>
-
+            <p>Le presentamos el formulario de inscripción para el recorrido por <strong>{{recorrido.estado}}, {{recorrido.ciudad}}</strong></p>
+            <form action = "{% url "RegistrarParticipante" recorrido.id_recorrido %}" method="POST">
+                {% csrf_token %}
                 <div class="row">
+                    <input type="hidden" name="id_recorrido" value="{{recorrido.id_recorrido}}">
                     <div class="col-6 mb-3 align-items-center">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control border-1" id="nombre" placeholder="Ingrese su nombre">
+                        <input type="text" class="form-control border-1" id="usuario_nombre" name="usuario_nombre" placeholder="Ingrese su nombre">
+                        {% if form.usuario_nombre.errors %}
+                        <span class="text-danger">{{form.usuario_nombre.errors}}</span>
+                        {% endif %}
                     </div>
                     <div class="col-6 mb-3">
                         <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="correo" placeholder="Ingrese su correo">
+                        <input type="email" class="form-control" id="usuario_correo_electronico" name="usuario_correo_electronico" placeholder="Ingrese su correo">
+                        {% if form.usuario_correo_electronico.errors %}
+                        <span class="text-danger">{{form.usuario_correo_electronico.errors}}</span>
+                        {% endif %}
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6 mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono">
+                        <input type="tel" class="form-control" id="usuario_telefono" name="usuario_telefono" placeholder="Ingrese su teléfono">
+                        {% if form.usuario_telefono.errors %}
+                        <span class="text-danger">{{form.usuario_telefono.errors}}</span>
+                        {% endif %}
                     </div>
                     <div class="col-6 mb-3">
                         <label for="ciudad" class="form-label">Ciudad</label>
-                        <input type="text" class="form-control" id="ciudad" placeholder="Ingrese su ciudad">
+                        <input type="text" class="form-control" id="usuario_ciudad" name="usuario_ciudad" placeholder="Ingrese su ciudad">
+                        {% if form.usuario_ciudad.errors %}
+                        <span class="text-danger">{{form.usuario_ciudad.errors}}</span>
+                        {% endif %}
                     </div>
                 </div>
-                
-                
                 <div class="col-5 mb-3">
                     <label for="estado" class="form-label">Estado</label>
-                    <input type="text" class="form-control" id="estado" placeholder="Ingrese su estado">
+                    <input type="text" class="form-control" id="usuario_estado" name="usuario_estado" placeholder="Ingrese su estado">
+                        {% if form.usuario_estado.errors %}
+                        <span class="text-danger">{{form.usuario_estado.errors}}</span>
+                        {% endif %}
                 </div>
-                <button type="submit" class="btn btn-primary w-100 my-5"><strong>Registrar</strong></button>
+                <button type="submit" class="btn btn-info text-black w-100 my-5"><strong>Registrar</strong></button>
             </form>
         </div>
         <div class="col-md-6">
-            <img src="https://www.lugaresturisticosenmexico.com/wp-content/uploads/2022/05/Patzcuaro-Michoacan-Pueblo-Magico-Turismo.jpg" alt="Pátzcuaro" class="mx-auto d-block" style="height: 380px; width: 90%; object-fit: cover;">
+            <img src="{{recorrido.foto_zona_visitar.url}}" alt="foto zona a visitar" class="mx-auto d-block rounded-2" style="height: 380px; width: 90%; object-fit: cover;">
         </div>
     </div>
 </div>
