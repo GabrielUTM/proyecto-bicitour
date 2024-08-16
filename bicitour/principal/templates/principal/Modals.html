@@ -28,31 +28,13 @@
               </tr>
             </thead>
             <tbody>
+              {% for inscripcion in inscripciones%}
               <tr>
-                <td>Roberto Díaz</td>
-                <td>Guerrero</td>
-                <td>Zihuatanejo</td>
+                <td>{{inscripcion.usuario_nombre}}</td>
+                <td>{{inscripcion.usuario_estado}}</td>
+                <td>{{inscripcion.usuario_ciudad}}</td>
               </tr>
-              <tr>
-                <td>Miguel Jimenez</td>
-                <td>Guerrero</td>
-                <td>Zihuatanejo</td>
-              </tr>
-              <tr>
-                <td>Raúl Mejía</td>
-                <td>Guerrero</td>
-                <td>Zihuatanejo</td>
-              </tr>
-              <tr>
-                <td>Mafer Díaz</td>
-                <td>Guerrero</td>
-                <td>Zihuatanejo</td>
-              </tr>
-              <tr>
-                <td>Belén Nuñez</td>
-                <td>Guerrero</td>
-                <td>Zihuatanejo</td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>

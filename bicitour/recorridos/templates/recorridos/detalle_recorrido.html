@@ -36,28 +36,18 @@
         {%else%}
           <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
         {%endif%}
-        <button
-          type="button"
-          class="btn btn-info px-4 fw-bold"
+          <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
           data-bs-toggle="modal"
-          data-bs-target="#participantesModal"
-        >
-          Participantes
-        </button>
+          data-bs-target="#participantesModal">Ver participantes</a>
       </div>
     </div>
 
     {% else %}
     <div class="row">
-      <div class="d-flex justify-content-center">
-        <button
-          type="button"
-          class="btn btn-info px-4 fw-bold"
+      <div class="d-flex justify-content-center">   
+        <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
           data-bs-toggle="modal"
-          data-bs-target="#participantesModal"
-        >
-          Participantes
-        </button>
+          data-bs-target="#participantesModal">Ver participantes</a>
       </div>
     </div>
 

@@ -29,6 +29,7 @@ urlpatterns = [
     path('detalle/<int:id>', views_recorridos.detalle_recorrido, name="Detalle"),
     path('pre-registro/<int:id>', views_recorridos.pre_registro,name="Pre-registro"),
     path('Registrar-Participante/<int:id>', views_recorridos.registrarParticipante,name="RegistrarParticipante"),
+    path('Mostrar-Participantes/<int:id>', views_recorridos.detalle_recorrido,name="MostrarParticipantes"),
 ]
 
 admin.site.index_title="Administración"

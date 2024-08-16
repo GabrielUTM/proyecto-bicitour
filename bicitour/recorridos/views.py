@@ -1,12 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .forms import RegistroParticipantesForm
-from .models import Recorridos
+from .models import Recorridos, Inscripcion
 
 # Create your views here.
 def detalle_recorrido(request, id):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
+    inscripciones = get_list_or_404(Inscripcion, id_recorrido=id)
     inscripcion = 'form' in request.COOKIES
-    return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':inscripcion})
+    return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':inscripcion, 'inscripciones': inscripciones})
 
 def recorridosProximos(request):
     recorridos = Recorridos.objects.filter(activo=True)
@@ -34,5 +35,4 @@ def registrarParticipante(request, id):
             return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
     form = RegistroParticipantesForm()
     return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
-
-
+    
