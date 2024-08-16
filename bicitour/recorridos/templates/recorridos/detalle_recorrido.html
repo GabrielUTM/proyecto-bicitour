@@ -18,7 +18,7 @@
         <p><span class="fw-bolder ps-2">Hora de salida:</span> 9:00 am</p>
         <p><span class="fw-bolder ps-2">Hora de llegada:</span> 2:30pm</p>
         <p>
-          <span class="fw-bolder ps-2">Estado de recorrido:</span> {% if recorrido.activo %}Activo {% else %}Finalizado{% endif %}
+          <span class="fw-bolder ps-2">Estado de recorrido:</span> {% if recorrido.activo %}Próximo{% else %}Finalizado{% endif %}
         </p>
       </div>
       <div
@@ -28,6 +28,7 @@
         h-100 rounded-2" alt="">
       </div>
     </div>
+    {% if mensaje != "Inscrito correctamente" %}
     <div class="row">
       <div class="d-flex justify-content-evenly">
         {% if inscripcion_existe %}
@@ -45,6 +46,26 @@
         </button>
       </div>
     </div>
+
+    {% else %}
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          class="btn btn-info px-4 fw-bold"
+          data-bs-toggle="modal"
+          data-bs-target="#participantesModal"
+        >
+          Participantes
+        </button>
+      </div>
+    </div>
+
+      <div class="alert alert-success col-8 mx-auto mt-4">
+      <p>{{mensaje}}</p>
+      </div>
+    {% endif %}
+
   </div>
 </section>
 {% endblock contenido %}

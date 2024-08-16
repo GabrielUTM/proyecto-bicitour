@@ -12,11 +12,7 @@
           la república mexicana, para más información sobre los recorridos…
         </p>
         <div class="d-flex justify-content-start py-3 px-4">
-          <button
-            type="button"
-            class="btn btn-info me-4 border-0"
-            onclick="window.location.href='{%url 'Recorridos'%}'">Recorridos
-          </button>
+          <a href="{% url "RecorridosProximos" %}" class="btn btn-info me-4 border-0">Recorridos</a>
           <button 
           type="button" 
           class="btn btn-dark border-0"

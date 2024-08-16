@@ -33,6 +33,10 @@ class Inscripcion(models.Model):
         regex=r'^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$',
         message="Este campo solo puede contener letras y espacios."
         )
+    number_validator = RegexValidator(
+        regex=r'^\d+$',
+        message="Este campo solo puede contener dígitos numéricos.",
+        )
     id_inscripcion = models.AutoField(primary_key=True,)
     id_recorrido = models.ForeignKey(Recorridos, on_delete=models.CASCADE, verbose_name="Recorridos")
     usuario_nombre = models.CharField(max_length=60, verbose_name="Nombre:", validators=[text_validator])

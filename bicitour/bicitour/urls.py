@@ -24,7 +24,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
     path('', views.principal, name="Principal"),
-    path('recorridos/', views_recorridos.recorridos, name="Recorridos"),
+    path('Recorridos-Proximos/', views_recorridos.recorridosProximos, name="RecorridosProximos"),
+    path('Recorridos-Finalizados/', views_recorridos.recorridosFinalizados, name="RecorridosFinalizados"),
     path('detalle/<int:id>', views_recorridos.detalle_recorrido, name="Detalle"),
     path('pre-registro/<int:id>', views_recorridos.pre_registro,name="Pre-registro"),
     path('Registrar-Participante/<int:id>', views_recorridos.registrarParticipante,name="RegistrarParticipante"),

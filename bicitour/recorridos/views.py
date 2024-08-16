@@ -8,8 +8,12 @@ def detalle_recorrido(request, id):
     inscripcion = 'form' in request.COOKIES
     return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':inscripcion})
 
-def recorridos(request):
-    recorridos = Recorridos.objects.all()
+def recorridosProximos(request):
+    recorridos = Recorridos.objects.filter(activo=True)
+    return render(request, "recorridos/recorridos.html", {'recorridos': recorridos})
+
+def recorridosFinalizados(request):
+    recorridos = Recorridos.objects.filter(activo=False)
     return render(request, "recorridos/recorridos.html", {'recorridos': recorridos})
 
 def pre_registro(request, id):
@@ -30,4 +34,5 @@ def registrarParticipante(request, id):
             return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
     form = RegistroParticipantesForm()
     return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
+
 

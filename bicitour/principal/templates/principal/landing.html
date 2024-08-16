@@ -29,11 +29,11 @@
                         <a class="nav-link {% if request.path == "/"  %}active{% endif %}" aria-current="page" href="{% url 'Principal'%}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == "/recorridos/"  %}active{% endif %}" href="{% url 'Recorridos'%}">Recorridos</a>
+                        <a class="nav-link {% if request.path == "/Recorridos-Proximos/"  %}active{% endif %}" href="{% url 'RecorridosProximos'%}">Recorridos Próximos</a>
                     </li>
-{% comment %}                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == "/pre-registro/"  %}active{% endif %}" href="{% url 'Pre-registro'%}">Pre-registro</a>
-                    </li> {% endcomment %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == "/Recorridos-Finalizados/"  %}active{% endif %}" href="{% url 'RecorridosFinalizados'%}">Recorridos Finalizados</a>
+                    </li>
                     {% if request.path == "/detalle/" %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/detalle/"  %}active{% endif %}" href="{% url 'Detalle'%}">Detalles del Recorrido</a>
