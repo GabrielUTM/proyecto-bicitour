@@ -31,8 +31,10 @@
     {% if mensaje != "Inscrito correctamente" %}
     <div class="row">
       <div class="d-flex justify-content-evenly">
-        {% if inscripcion_existe %}
-          <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Calificar</a>
+        {% if recorrido.activo == false and inscripcion_existe.id_recorrido == recorrido.id_recorrido%}
+        <a href="{% url "MostrarParticipantes" inscripcion_existe.id_inscripcion %}"  class="btn btn-info px-4 fw-bold"
+        data-bs-toggle="modal"
+        data-bs-target="#participantesModal">Calificar</a>
         {%else%}
           <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
         {%endif%}

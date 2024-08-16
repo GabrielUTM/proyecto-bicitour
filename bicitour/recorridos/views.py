@@ -5,12 +5,18 @@ from .models import Recorridos, Inscripcion
 # Create your views here.
 def detalle_recorrido(request, id):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
-    inscripciones = get_list_or_404(Inscripcion, id_recorrido=id)
-    inscripcion = 'form' in request.COOKIES
+    inscripciones = Inscripcion.objects.filter(id_recorrido=id)
+    inscripcion = request.COOKIES.get('inscripcion')
+    
+    if not inscripciones.exists():
+        inscripciones = "No hay participantes en el recorrido"
+        
     return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':inscripcion, 'inscripciones': inscripciones})
+
 
 def recorridosProximos(request):
     recorridos = Recorridos.objects.filter(activo=True)
+    inscripcion = 'form' in request.COOKIES
     return render(request, "recorridos/recorridos.html", {'recorridos': recorridos})
 
 def recorridosFinalizados(request):
@@ -26,10 +32,12 @@ def registrarParticipante(request, id):
     if request.method == 'POST':
         form = RegistroParticipantesForm(request.POST)
         if form.is_valid():
-            form.save()
+            inscripcion = form.save()
             recorrido = get_object_or_404(Recorridos, id_recorrido = id)
-            respuesta = render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion_existe':'form' in request.COOKIES })
-            respuesta.set_cookie('form', 'true', path='/')
+            respuesta = render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripcion':'inscripcion' in request.COOKIES })
+            respuesta.set_cookie('inscripcion', inscripcion.id_inscripcion, path='/')
+            imprimir = request.COOKIES.get('inscripcion')
+            print(imprimir)
             return respuesta
         else:
             return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
