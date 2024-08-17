@@ -31,7 +31,7 @@ urlpatterns = [
     path('Registrar-Participante/<int:id>', views_recorridos.registrarParticipante,name="RegistrarParticipante"),
     path('Mostrar-Participantes/<int:id>', views_recorridos.detalle_recorrido,name="MostrarParticipantes"),
     path('calificacion/<int:id>/<int:id_sesion>/', views_recorridos.calificacion, name='RegistrarCalificacion'),
-    path('guardarCalificacion/', views_recorridos.registrarCalificacion, name="GuardarCalificacion"),
+    path('Guardar-Calificacion/<int:id>', views_recorridos.registrarCalificacion, name="GuardarCalificacion"),
 ]
 
 admin.site.index_title="Administración"
