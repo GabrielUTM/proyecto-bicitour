@@ -1,15 +1,17 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404
 from .forms import RegistroParticipantesForm, ComentarioForm
-from .models import Recorridos, Inscripcion, Comentario
+from .models import Recorridos, Inscripcion
 
 # Create your views here.
 def detalle_recorrido(request, id):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
     inscripciones = Inscripcion.objects.filter(id_recorrido=id)
     inscripcion = request.COOKIES.get('inscripcion')
-    sesion = get_object_or_404(Inscripcion, id_inscripcion=inscripcion)
-    
-    print(sesion.usuario_nombre)
+    if inscripcion != None:
+        sesion = get_object_or_404(Inscripcion, id_inscripcion=inscripcion)
+    else:
+        sesion = "Sin sesion"
+    # print(sesion.usuario_nombre)
     
     vacio = False
     
