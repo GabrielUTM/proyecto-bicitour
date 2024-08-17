@@ -31,10 +31,10 @@
     {% if mensaje != "Inscrito correctamente" %}
     <div class="row">
       <div class="d-flex justify-content-evenly">
-        {% if recorrido.activo == false and inscripcion_existe.id_recorrido == recorrido.id_recorrido%}
-        <a href="{% url "MostrarParticipantes" inscripcion_existe.id_inscripcion %}"  class="btn btn-info px-4 fw-bold"
+        {% if recorrido.activo == False and sesion != None%}
+        <a href="{% url "RegistrarCalificacion" recorrido.id_recorrido sesion.id_inscripcion %}"  class="btn btn-info px-4 fw-bold"
         data-bs-toggle="modal"
-        data-bs-target="#participantesModal">Calificar</a>
+        data-bs-target="#formularioCalificacionModal">Calificar</a>
         {%else%}
           <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
         {%endif%}

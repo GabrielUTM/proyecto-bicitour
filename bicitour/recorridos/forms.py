@@ -12,10 +12,8 @@ class RegistroParticipantesForm(forms.ModelForm):
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = '__all__'
+        fields = ['id_recorrido', 'id_inscripcion', 'comentario', 'calificacion']
 
     def __init__(self, *args, **kwargs):
         super(ComentarioForm, self).__init__(*args, **kwargs)
-        self.fields['id_inscripcion'].queryset = Inscripcion.objects.all()
-        self.fields['id_inscripcion'].label_from_instance = lambda obj: f"{obj.usuario_nombre}"
-
+        self.fields['calificacion'].widget = forms.RadioSelect(choices=[(i, f'{i} estrellas') for i in range(1, 6)])

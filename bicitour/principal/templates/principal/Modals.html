@@ -97,10 +97,10 @@
     <div class="modal-content px-md-5">
       <div class="rating-form">
         <h2>Calificación</h2>
-        <form action="" method="POST">
+        <form action="{% url "GuardarCalificacion" %}" method="POST">
           {% csrf_token %}
-          <input type="hidden" name="id_recorrido" value="{{ inscripcion.id_recorrido }}">
-          <input type="hidden" name="id_inscripcion" value="{{ inscripcion.id_inscripcion }}">
+          <input type="hidden" name="id_inscripcion" value="{{ sesion.id_inscripcion }}">
+          <input type="hidden" name="id_recorrido" value="{{ sesion.id_recorrido }}">
 
           <div>
             <h5 for="comentarios">Comentarios</h5>

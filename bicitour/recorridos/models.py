@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import EmailValidator, MinLengthValidator, MaxLengthValidator, RegexValidator
+from django.core.validators import EmailValidator, MinValueValidator, MaxValueValidator, RegexValidator, MinLengthValidator, MaxLengthValidator
 
 
 class Recorridos(models.Model):
@@ -55,16 +55,12 @@ class Inscripcion(models.Model):
     def __str__(self):
         return self.usuario_nombre
     
-
-
-
-
 class Comentario(models.Model):
     id_comentario = models.AutoField(primary_key=True)
     id_recorrido = models.ForeignKey(Recorridos, on_delete=models.CASCADE, verbose_name="Recorrido")
     id_inscripcion = models.ForeignKey(Inscripcion, on_delete=models.CASCADE, verbose_name="Inscripcion")
     comentario = models.TextField()
-    calificacion = models.IntegerField(validators=[MaxLengthValidator(5), MinLengthValidator(1)])
+    calificacion = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
