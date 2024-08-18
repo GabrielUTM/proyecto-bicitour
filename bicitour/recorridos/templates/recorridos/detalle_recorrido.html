@@ -28,43 +28,58 @@
         h-100 rounded-2" alt="">
       </div>
     </div>
-    {% if recorrido.activo == False and sesion != None%}
-    <div class="row">
-      <div class="d-flex justify-content-evenly">   
-        <a href="{% url "RegistrarCalificacion" recorrido.id_recorrido sesion.id_inscripcion %}"  class="btn btn-info px-4 fw-bold"
-        data-bs-toggle="modal"
-        data-bs-target="#formularioCalificacionModal">Calificar</a>
-        <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
-          data-bs-toggle="modal"
-          data-bs-target="#participantesModal">Ver participantes</a>
-          {% if comentario_exitoso %}
-                <div class="alert alert-success col-8 mx-auto mt-4">
-                 <p>Comentario realizado correctamente!</p>
-                </div>
-          {% endif %}
-          {% elif recorrido.activo == True and exitoso == True%}
-            <div class="row">
-              <div class="d-flex justify-content-center">
-                <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
-                   data-bs-toggle="modal"
-                  data-bs-target="#participantesModal">Ver participantes</a>
-                </div>
-                <div class="alert alert-success col-8 mx-auto mt-4">
+    {% if  recorrido.activo %}
+      {% if sesion != None and sesion_recorrido.id_recorrido == recorrido.id_recorrido%}
+          <div class="row">
+            <div class="d-flex justify-content-evenly">   
+              <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
+                data-bs-toggle="modal"
+                data-bs-target="#participantesModal">Ver participantes</a>       
+             </div>
+              <div class="alert alert-success col-8 mx-auto mt-4">
                  <p>Inscrito correctamente!</p>
-                </div>
-            </div>
-      </div>
-    </div>
-    {% else %}
-    <div class="row">
-      <div class="d-flex justify-content-evenly">
-          <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
-          <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
-          data-bs-toggle="modal"
-          data-bs-target="#participantesModal">Ver participantes</a>
-      </div>
-    </div>
+             </div>
+          </div>
+      {% else %}
+          <div class="row">
+            <div class="d-flex justify-content-evenly">
+              <a href="{% url "Pre-registro" recorrido.id_recorrido %}" class="btn btn-success px-4 fw-bold text-black">Registrate</a>
+              <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
+              data-bs-toggle="modal"
+              data-bs-target="#participantesModal">Ver participantes</a>
+           </div>
+        </div>
+      {% endif %}
     {% endif %}
+    {% if recorrido.activo == False %}
+        {% if sesion != None and sesion_recorrido.id_recorrido == recorrido.id_recorrido %}
+          <div class="row">
+            <div class="d-flex justify-content-evenly">   
+              <a href="{% url "RegistrarCalificacion" recorrido.id_recorrido sesion.id_inscripcion %}"  class="btn btn-info px-4 fw-bold"
+              data-bs-toggle="modal"
+              data-bs-target="#formularioCalificacionModal">Calificar</a>
+              <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
+                data-bs-toggle="modal"
+                data-bs-target="#participantesModal">Ver participantes</a>       
+            </div>
+            {% if comentario_exitoso %}
+            <div class="alert alert-success col-8 mx-auto mt-4">
+                 <p>Comentario registrado exitosamente!</p>
+             </div>
+            {% endif %}
+          </div>
+        {% else %}
+            <div class="row">
+            <div class="d-flex justify-content-center">
+              <a href="{% url "MostrarParticipantes" recorrido.id_recorrido %}"  class="btn btn-info px-4 fw-bold"
+              data-bs-toggle="modal"
+              data-bs-target="#participantesModal">Ver participantes</a>
+           </div>
+        </div>
+        {% endif %}
+    {% endif %}    
   </div>
 </section>
 {% endblock contenido %}
+
+
