@@ -7,18 +7,21 @@ def detalle_recorrido(request, id):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
     inscripciones = Inscripcion.objects.filter(id_recorrido=id)
     inscripcion = request.COOKIES.get('inscripcion')
+    recorrido_id = request.COOKIES.get('recorrido_id')
+    vacio = False
     if inscripcion != None:
         sesion = get_object_or_404(Inscripcion, id_inscripcion=inscripcion)
     else:
-        sesion = "Sin sesion"
-    # print(sesion.usuario_nombre)
-    
-    vacio = False
-    
+        sesion = None
+    if recorrido_id != None:
+        sesion_recorrido =get_object_or_404(Recorridos, id_recorrido=recorrido_id)
+    else:
+        sesion_recorrido = None
+
     if not inscripciones.exists():
         vacio = True
         
-    return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripciones': inscripciones,'sesion':sesion ,'vacio': vacio})
+    return render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido, 'inscripciones': inscripciones,'sesion':sesion ,'vacio': vacio, 'sesion_recorrido': sesion_recorrido})
 
 def calificacion(request, id, id_sesion):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
@@ -32,12 +35,27 @@ def calificacion(request, id, id_sesion):
 
 def registrarCalificacion(request, id):
     recorrido = get_object_or_404(Recorridos, id_recorrido = id)
+    inscripcion = request.COOKIES.get('inscripcion')
+    recorrido_id = request.COOKIES.get('recorrido_id')
+    inscripciones = Inscripcion.objects.filter(id_recorrido=id)
+    vacio = False
+    if inscripcion != None:
+        sesion = get_object_or_404(Inscripcion, id_inscripcion=inscripcion)
+    else:
+        sesion = None
+    if recorrido_id != None:
+        sesion_recorrido =get_object_or_404(Recorridos, id_recorrido=recorrido_id)
+    else:
+        sesion_recorrido = None
+
+    if not inscripciones.exists():
+        vacio = True
     if request.method == "POST":
         form = ComentarioForm(request.POST)
         if form.is_valid():
             comentario = form.save()
             comentario_exitoso = True
-            return render(request, "recorridos/detalle_recorrido.html", {'recorrido':recorrido, 'comentario_exitoso': comentario_exitoso})
+            return render(request, "recorridos/detalle_recorrido.html", {'recorrido':recorrido, 'comentario_exitoso': comentario_exitoso, 'vacio':vacio, 'sesion':sesion, 'sesion_recorrido': sesion_recorrido, 'inscripciones':inscripciones})
         else:
             return render(request, "recorridos/detalle_recorrido.html", {'form':form, 'recorrido': recorrido})
     form = ComentarioForm()
@@ -67,8 +85,11 @@ def registrarParticipante(request, id):
             exitoso = True
             respuesta = render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido,'inscripciones':inscripciones, 'exitoso':exitoso ,'inscripcion':'inscripcion' in request.COOKIES })
             respuesta.set_cookie('inscripcion', inscripcion.id_inscripcion, path='/')
-            imprimir = request.COOKIES.get('inscripcion')
+            respuesta.set_cookie('recorrido_id', id, path='/')
+            """             imprimir = request.COOKIES.get('inscripcion')
+            imprimir2 = request.COOKIES.get('recorrido_id')
             print(imprimir)
+            print(imprimir2) """
             return respuesta
         else:
             return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
