@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'principal',
     'recorridos.apps.RecorridosConfig',
+    'simple_history',
+    'import_export',
     
 ]
 

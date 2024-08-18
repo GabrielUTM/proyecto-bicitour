@@ -70,4 +70,4 @@ class Comentario(models.Model):
         ordering = ["created"]
 
     def __str__(self):
-        return self.id_comentario
+        return str(self.id_comentario)

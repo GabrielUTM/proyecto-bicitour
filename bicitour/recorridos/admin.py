@@ -3,6 +3,9 @@ from .models import Recorridos
 from .models import Inscripcion
 from .models import Comentario
 from .forms import ComentarioForm
+from simple_history.models import HistoricalRecords
+from import_export.admin import ImportExportModelAdmin
+from .resources import ComentarioResource
 
 # Register your models here.
 
@@ -13,25 +16,28 @@ class AdministrarRecorrido(admin.ModelAdmin):
     date_hierarchy = 'fecha'
     readonly_fields = ('created', 'updated')
     save_on_top = True
+    history = HistoricalRecords()
     
     fieldsets = (
         ('Datos del recorrido: ', {
-            'fields': ('estado','ciudad','costo','descripcion')
+            'fields': ('estado','ciudad','costo','descripcion','fecha','foto_zona_visitar')
         }),
         ('Datos de trayecto: ', {
-            'fields': ('punto_inicio','km_recorrido','tiempo_estimado','activo'),
+            'fields': ('punto_inicio','km_recorrido','tiempo_estimado','hora','activo'),
         }),
     )
     
 
 admin.site.register(Recorridos, AdministrarRecorrido)
 
-class AdministrarComentarios(admin.ModelAdmin):
+class AdministrarComentarios(ImportExportModelAdmin):
     form = ComentarioForm
     list_display = ('id_comentario', 'id_recorrido', 'get_usuario_nombre', 'comentario', 'calificacion', 'created')
     search_fields = ('id_comentario', 'comentario')
     list_filter = ('calificacion', 'id_recorrido')
     readonly_fields = ('id_comentario','created')
+    history = HistoricalRecords()
+    resource_class = ComentarioResource
     
     fieldsets = (
         ('Calificación: ', {
@@ -53,6 +59,7 @@ class AdministrarInscripcion(admin.ModelAdmin):
     list_display = ('id_inscripcion', 'id_recorrido', 'usuario_nombre', 'usuario_correo_electronico', 'usuario_telefono', 'usuario_ciudad', 'usuario_estado')
     search_fields = ('usuario_nombre', 'usuario_correo_electronico')
     list_filter = ('usuario_ciudad', 'usuario_estado')
+    history = HistoricalRecords()
     
     fieldsets = (
         ('Datos del usuario: ', {
