@@ -34,9 +34,14 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/Recorridos-Finalizados/"  %}active{% endif %}" href="{% url 'RecorridosFinalizados'%}">Recorridos Finalizados</a>
                     </li>
-                    {% if request.path == "/detalle/" %}
+                    {% if  "detalle" in request.path %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == "/detalle/"  %}active{% endif %}" href="{% url 'Detalle'%}">Detalles del Recorrido</a>
+                        <a class="nav-link {% if "detalle" in request.path  %}active{% endif %}" href="{% url 'Detalle' recorrido.id_recorrido%}">Detalles del Recorrido</a>
+                    </li>
+                    {% endif %}
+                    {% if "pre-registro" in request.path %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if "pre-registro" in request.path  %}active{% endif %}" href="{% url 'Pre-registro' recorrido.id_recorrido%}">Pre-Registro</a>
                     </li>
                     {% endif %}
                     

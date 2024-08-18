@@ -10,13 +10,12 @@
       <div class="col-md-4 col-sm-12 ps-md-5 py-4">
         <p><span class="fw-bolder ps-2">Costo:</span> ${{recorrido.costo}}</p>
         <p><span class="fw-bolder ps-2">Ciudad:</span> {{recorrido.ciudad}}</p>
-        <p><span class="fw-bolder ps-2">Fecha:</span> 05/06/2024</p>
+        <p><span class="fw-bolder ps-2">Fecha:</span> {{recorrido.fecha}}</p>
         <p>
           <span class="fw-bolder ps-2">Punto de inicio:</span>
           {{recorrido.punto_inicio}}
         </p>
-        <p><span class="fw-bolder ps-2">Hora de salida:</span> 9:00 am</p>
-        <p><span class="fw-bolder ps-2">Hora de llegada:</span> 2:30pm</p>
+        <p><span class="fw-bolder ps-2">Hora de salida:</span> {{recorrido.hora}}</p>
         <p>
           <span class="fw-bolder ps-2">Estado de recorrido:</span> {% if recorrido.activo %}Próximo{% else %}Finalizado{% endif %}
         </p>

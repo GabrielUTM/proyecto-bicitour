@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render, get_object_or_404
 from .forms import RegistroParticipantesForm, ComentarioForm
 from .models import Recorridos, Inscripcion
@@ -63,8 +64,9 @@ def registrarCalificacion(request, id):
 
 def recorridosProximos(request):
     recorridos = Recorridos.objects.filter(activo=True)
+    is_today = date.today()
     inscripcion = 'form' in request.COOKIES
-    return render(request, "recorridos/recorridos.html", {'recorridos': recorridos})
+    return render(request, "recorridos/recorridos.html", {'recorridos': recorridos, 'is_today': is_today})
 
 def recorridosFinalizados(request):
     recorridos = Recorridos.objects.filter(activo=False)
