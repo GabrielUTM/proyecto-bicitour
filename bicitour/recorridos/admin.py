@@ -17,6 +17,7 @@ class AdministrarRecorrido(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
     save_on_top = True
     
+    #Establece un orden para los campos dentro del admin
     fieldsets = (
         ('Datos del recorrido: ', {
             'fields': ('estado','ciudad','costo','descripcion','fecha','foto_zona_visitar')
@@ -37,6 +38,7 @@ class AdministrarComentarios(ImportExportModelAdmin):
     readonly_fields = ('id_comentario','created')
     resource_class = ComentarioResource
     
+    #Establece un orden para los campos dentro del admin
     fieldsets = (
         ('Calificación: ', {
             'fields': ('calificacion', 'comentario','id_recorrido',)
@@ -59,6 +61,7 @@ class AdministrarInscripcion(admin.ModelAdmin):
     search_fields = ('usuario_nombre', 'usuario_correo_electronico')
     list_filter = ('usuario_ciudad', 'usuario_estado')
     
+    #Establece un orden para los campos dentro del admin
     fieldsets = (
         ('Datos del usuario: ', {
             'fields': ('usuario_nombre', 'usuario_correo_electronico', 'usuario_telefono', 'usuario_ciudad', 'usuario_estado')
