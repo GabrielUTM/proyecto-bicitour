@@ -10,6 +10,7 @@ from .resources import ComentarioResource
 
 class AdministrarRecorrido(admin.ModelAdmin):
     list_display = ('id_recorrido', 'fecha', 'hora', 'estado', 'ciudad', 'km_recorrido', 'tiempo_estimado', 'punto_inicio', 'costo', 'activo')
+    list_display_links = ('id_recorrido', 'estado','ciudad')
     search_fields = ('id_recorrido', 'estado', 'ciudad')
     list_filter = ('estado', 'ciudad', 'activo')
     date_hierarchy = 'fecha'
@@ -54,6 +55,7 @@ admin.site.register(Comentario, AdministrarComentarios)
 
 class AdministrarInscripcion(admin.ModelAdmin):
     list_display = ('id_inscripcion', 'id_recorrido', 'usuario_nombre', 'usuario_correo_electronico', 'usuario_telefono', 'usuario_ciudad', 'usuario_estado')
+    list_display_links = ('id_inscripcion', 'usuario_nombre', 'usuario_correo_electronico')
     search_fields = ('usuario_nombre', 'usuario_correo_electronico')
     list_filter = ('usuario_ciudad', 'usuario_estado')
     
