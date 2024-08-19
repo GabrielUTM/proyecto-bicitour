@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'principal',
     'recorridos.apps.RecorridosConfig',
     'import_export',
-    
+    'colorfield',
+    'admin_interface',
 ]
 
 MIDDLEWARE = [
