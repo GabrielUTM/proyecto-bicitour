@@ -1,5 +1,5 @@
 from datetime import date
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect 
 from .forms import RegistroParticipantesForm, ComentarioForm
 from .models import Recorridos, Inscripcion
 
@@ -102,15 +102,9 @@ def registrarParticipante(request, id):
         if form.is_valid():
             inscripcion = form.save()
             recorrido = get_object_or_404(Recorridos, id_recorrido = id)
-            inscripciones = Inscripcion.objects.filter(id_recorrido = id)
-            exitoso = True
-            respuesta = render(request, "recorridos/detalle_recorrido.html", {'recorrido': recorrido,'inscripciones':inscripciones, 'exitoso':exitoso ,'inscripcion':'inscripcion' in request.COOKIES })
+            respuesta = redirect('Detalle', id = id)
             respuesta.set_cookie('inscripcion', inscripcion.id_inscripcion, path='/')
             respuesta.set_cookie('recorrido_id', id, path='/')
-            """             imprimir = request.COOKIES.get('inscripcion')
-            imprimir2 = request.COOKIES.get('recorrido_id')
-            print(imprimir)
-            print(imprimir2) """
             return respuesta
         else:
             return render(request, "recorridos/pre-registro.html", {'form': form, 'recorrido': recorrido})
