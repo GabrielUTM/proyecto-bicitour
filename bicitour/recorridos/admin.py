@@ -16,6 +16,7 @@ class AdministrarRecorrido(admin.ModelAdmin):
     date_hierarchy = 'fecha'
     readonly_fields = ('created', 'updated')
     save_on_top = True
+    list_per_page = 4
     
     #Establece un orden para los campos dentro del admin
     fieldsets = (
@@ -37,7 +38,7 @@ class AdministrarComentarios(ImportExportModelAdmin):
     list_filter = ('calificacion', 'id_recorrido')
     readonly_fields = ('id_comentario','created')
     resource_class = ComentarioResource
-    
+    list_per_page = 4
     #Establece un orden para los campos dentro del admin
     fieldsets = (
         ('Calificación: ', {
@@ -60,7 +61,7 @@ class AdministrarInscripcion(admin.ModelAdmin):
     list_display_links = ('id_inscripcion', 'usuario_nombre', 'usuario_correo_electronico')
     search_fields = ('usuario_nombre', 'usuario_correo_electronico')
     list_filter = ('usuario_ciudad', 'usuario_estado')
-    
+    list_per_page = 4
     #Establece un orden para los campos dentro del admin
     fieldsets = (
         ('Datos del usuario: ', {
